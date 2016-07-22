@@ -1,0 +1,7 @@
+local
+node_modules
+.idea
+npm-shrinkwrap.json
+npm-debug.log
+packages
+.meteor/

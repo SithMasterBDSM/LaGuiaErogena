@@ -1,0 +1,78 @@
+<template name="header">
+    {{#if showHeader}}
+        <nav class="navbar navbar-default" style="margin-bottom:0px;">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button
+                        type="button"
+                        class="navbar-toggle collapsed"
+                        data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1"
+                        aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/home">Guía Erógena</a>
+                </div>
+    
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/map">Mapa</a></li>
+                        <li><a href="#" data-toggle="modal" data-target="#registerForm">Regístrate</a></li>
+                        <li><a href="#" data-toggle="modal" data-target="#loginForm">Iniciar Sesión</a></li>
+                        {{#with currentUser}}
+                            <li><a href="#" class="logout">Salir</a></li>
+                        {{/with}}
+                        <!--
+                        {{#if currentUser}}
+                            <li class="dropdown">
+                                <a
+                                    href="#"
+                                    class="dropdown-toggle"
+                                    data-toggle="dropdown"
+                                    role="button"
+                                    aria-haspopup="true"
+                                    aria-expanded="false">
+                                    Mapa <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/map">Con el logotipo seleccionado</a></li>
+                                    <li><a href="/map?showIcon=1">Con el logotipo oficial</a></li>
+                                    <li><a href="/map?showIcon=2">Sin el logotipo oficial</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="/entidades">Entidades</a></li>
+                            <li><a href="/cajeros">Agregar/Editar Cajeros</a></li>
+                        {{/if}}
+                        -->
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a
+                                href="#"
+                                class="dropdown-toggle"
+                                data-toggle="dropdown"
+                                role="button"
+                                aria-haspopup="true"
+                                aria-expanded="false">
+                                {{#with currentUser}}
+                                    {{this.profile.name}}
+                                {{/with}}
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" data-toggle="modal" data-target="#registerForm">Regístrate</a></li>
+                                <li><a href="#" data-toggle="modal" data-target="#loginForm">Iniciar Sesión</a></li>
+                                {{#with currentUser}}
+                                    <li><a href="#" class="logout">Salir</a></li>
+                                {{/with}}
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    {{/if}}
+</template>

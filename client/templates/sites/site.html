@@ -1,0 +1,107 @@
+<template name="site">
+    <div class="container">
+        <br>
+        {{getSiteByFinancialEntity}}
+        <button class="btn btn-success" data-toggle="modal" data-target="#siteInsertForm">Agregar un nuevo sitio</button> <button class="btn btn-primary import-sites">Importar sitios</button>
+        <br>
+        <br>
+        <div class="form-group">
+            <label for="financialEntity">Entidades</label>
+            <select name="financialEntity" class="form-control" id="financialEntity">
+                <option value="">Seleccione una:</option>
+                {{#each getFinancialEntities}}
+                    <option value="{{this.value}}">{{this.label}}</option>
+                {{/each}}
+            </select>
+        </div>
+        Lista de sitios
+        <table class="table table-responsive table-hover table-striped">
+            <thead>
+                <tr>
+                    <td>Nombre</td>
+                    <td>Dirección</td>
+                    <td>Latitud</td>
+                    <td>Longitud</td>
+                    <td colspan="3">Acciones</td>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each siteList}}
+                    <tr>
+                        <td>{{this.nameSpa}}</td>
+                        <td>{{this.address}}</td>
+                        <td>{{this.location.latitude}}</td>
+                        <td>{{this.location.longitude}}</td>
+                        <td>{{#quickRemoveButton collection="site" _id=this._id class="btn btn-danger" beforeRemove=beforeRemove}}<i class="fa fa-trash"></i>{{/quickRemoveButton}}</td>
+                        <td><button class="btn btn-primary editSite" data-siteid="{{this._id}}"><i data-siteid="{{this._id}}" class="fa fa-pencil"></i></button></td>
+                    </tr>
+                {{/each}}
+            </tbody>
+            <tr></tr>
+        </table>
+    </div>
+    {{> siteInsertForm}}
+    {{> siteUpdateForm}}
+</template>
+
+<template name="siteInsertForm">
+    <div id="siteInsertForm" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Registrar sitio</h4>
+                </div>
+                <div class="modal-body">
+                    {{#autoForm collection="site" id="insertSiteForm" type="insert"}}
+                        <fieldset>
+                            {{> afQuickField name='nameSpa'}}
+                            {{> afQuickField name='location'}}
+                            {{> afQuickField name='address' rows=2}}
+                            {{> afQuickField name='idFinancialEntity' options=getFinancialEntities firstOption="Seleccione una"}}
+                            {{> afQuickField name='status' options="allowed" firstOption="Seleccione uno"}}
+                            {{> afQuickField name='reference' rows=2}}
+                        </fieldset>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    {{/autoForm}}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="siteUpdateForm">
+    <div id="siteUpdateForm" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Actualizar sitio</h4>
+                </div>
+                <div class="modal-body">
+                    {{#autoForm collection="site" doc=currentSite id="updateSiteForm" type="update"}}
+                        <fieldset>
+                            {{> afQuickField name='nameSpa'}}
+                            {{> afQuickField name='location'}}
+                            {{> afQuickField name='address' rows=2}}
+                            {{> afQuickField name='idFinancialEntity' options=getFinancialEntities firstOption="Seleccione una"}}
+                            {{> afQuickField name='status' options="allowed" firstOption="Seleccione uno"}}
+                            {{> afQuickField name='reference' rows=2}}
+                        </fieldset>
+                        <button type="submit" class="btn btn-primary">Actualizar</button>
+                    {{/autoForm}}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="siteLoading">
+    Cargando sitios...
+</template>

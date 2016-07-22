@@ -1,0 +1,101 @@
+<template name="siteList">
+    <div class="map-container" style="box-sizing: border-box;width:100%;height:95vh;position:relative;">
+        <div style="position:absolute;top:5px;right:5px;z-index:1038;">
+            <!-- form class="form-inline" id="searchForm" role="form" style="width:100%;">
+                <div class="form-group" style="margin-bottom:2px !important;">
+                    <select name="financialEntity" class="form-control" id="financialEntity" multiple>
+                        <option value="">Sitio</option>
+                        {{#each getFinancialEntities}}
+                            <option value="{{this.value}}">{{this.label}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Nombre / Referencia" id="search" name="search">
+                </div>
+            </form -->
+        </div>
+        {{getSiteList}}
+        {{> googleMap name="map" options=mapOptions}}
+    </div>
+    <div class="row list-container hide" style="background-color: white;z-index:1039;position:absolute;bottom:0;overflow-y:scroll;width:100%;height:45vh;margin-left:0px;">
+        <div class="row resize-drag" style="width: 100%;box-sizing: border-box;margin-left:0px;margin-right:0px;">
+            <div class="col-md-12 clearfix" style="background-color:white;border:3px black solid;"></div>
+            <div class="col-md-12 clearfix" style="background-color:white;">
+                <span class="pull-right" style="cursor:pointer;" id="close-panel"><i style="font-size:26px;" class="glyphicon glyphicon-remove-circle"></i></span>
+            </div>
+            <div class="col-md-12" style="background-color:white;height:100%;">
+                <ul class="list-group" id="site-list"></ul>
+            </div>
+        </div>
+    </div>
+    {{> showSite}}
+</template>
+
+<template name="showSite">
+    <div id="showSite" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Cajero: {{getSelectedSite.nameSpa}}</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="">Entidad Financiera</label>
+                                <p>
+                                    {{getSelectedSite.idFinancialEntity.nameSpa}} ({{isOriginalLogoAllowed getSelectedSite.idFinancialEntity.isOriginalLogoAllowed}})
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="">Estado</label>
+                                <p>{{getSelectedSite.status}}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="">Dirección</label>
+                                <p>{{getSelectedSite.address}}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Latitud</label>
+                                <p>{{getSelectedSite.latitude}}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Longitud</label>
+                                <p>{{getSelectedSite.longitude}}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="">Referencia / Información Adicional</label>
+                                <p>{{getSelectedSite.reference}}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="">Comisión</label>
+                                <p>$ 1000</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="siteListLoading">
+    Cargando sitios...
+</template>

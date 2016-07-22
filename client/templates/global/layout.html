@@ -1,0 +1,18 @@
+<template name="layout">
+    <div class="f02 cuerpo">
+        <div class="header">
+            {{> header}}
+        </div>
+        <div id="centralArea">
+            <div id="content" style="width:100%;">
+                <div style="width:100%;">
+                    {{> yield}}
+                </div>
+                <div class="footer">
+                    {{> footer}}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{>register }} {{>login }}
+</template>
