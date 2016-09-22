@@ -6,13 +6,8 @@ pages". Nótese que en este proyecto se tienen varios archivos en formato
 */
 
 Router.configure({layoutTemplate: "layout"});
-Router.route("/", {name: "landingPage",
+Router.route("/", {name: "home",
     onAfterAction: function () {
         Session.set("showHeader", false);
         Session.set("showFooter", false);
-    }});
-Router.route("home", {name: "home",
-onAfterAction: function () {
-        Session.set("showHeader", true);
-        Session.set("showFooter", true);
     }});
