@@ -1,0 +1,18 @@
+.erogenaBackground {
+	background-image: url("/img/background_640.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+body {
+	color: #ffffff;
+}
+
+.centeredImageArea {
+    width: 100%;
+    height: auto;
+    padding-left: 8%;
+    padding-right: 8%;
+    padding-top: 8%;
+    padding-bottom: 8%;
+}
