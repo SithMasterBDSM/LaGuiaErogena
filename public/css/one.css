@@ -1,11 +1,45 @@
 .erogenaBackground {
 	background-image: url("/img/background_640.png");
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
+}
+
+@font-face {
+        font-family: "gothic";
+        src: url("/fonts/gothic.eot");
+        src: local("gothic"), 
+             url("./gothic.woff") format("woff"), 
+             url("/fonts/gothic.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "lobster_1.4regular";
+    src: url("/fonts/lobster1_4-webfont.woff2") format("woff2"),
+         url("/fonts/lobster1_4-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    color: #ff0000;
 }
 
 body {
 	color: #ffffff;
+	font-family: "gothic";
+}
+
+h1 {
+	font-family: "lobster_1.4regular";
+}
+
+.btn-primary {
+	font-family: "lobster_1.4regular";
+    color: #ffffff;
+    background-color: #660a21;
+}
+
+.btn-secondary {
+    font-family: "lobster_1.4regular";
+    color: #ffffff;
+    background-color: #57585a;
 }
 
 .centeredImageArea {
