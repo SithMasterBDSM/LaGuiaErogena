@@ -6,6 +6,46 @@
         href="/css/one.css" type="text/css" charset="utf-8" />
 </head>
 
+<template name="registerForm">
+	<form>
+	    <div class="row customFormContainer">
+	    	<div class="col-xs-2">
+	    		<label>Nombre:</label>
+	    	</div>
+	    	<div class="col-xs-4">
+	    		<input type="text" class="btn-block">
+    		</div>
+	    	<div class="col-xs-2">
+	    		<label>Apellidos:</label>
+    		</div>
+	    	<div class="col-xs-4">
+	    		<input type="text" class="btn-block">
+	    	</div>
+		</div>
+		<br>
+	    <div class="row customFormContainer">
+		    <div class="col-xs-4">
+				<label>Fecha de nacimiento:</label>
+			</div>
+		    <div class="col-xs-8 btn-block">
+				<input type="date">
+			</div>
+		</div>
+		<br>
+		<label>Email:</label>
+		<input type="text"><br>
+		<br>
+		<label>Contáctenos:</label>
+		<input type="text"><br>
+		<br>
+		<input type="checkbox">
+		<label>Términos y condiciones</label>
+		<button class="btn-primary">
+			Registrarse
+		</button>
+	</form>
+</template>
+
 <template name="home">
     <div class="container row erogenaBackground">
 	    <div class="col-xs-12">
@@ -13,24 +53,8 @@
 	    </div>
 	    <div class="col-xs-12">
 	    	<div class="row">
-			    <div class="col-sm-8" style="height: 500px;">
-			    	<form>
-			    		Nombre:
-			    		<input type="text">
-			    		Apellidos:
-			    		<input type="text"><br>
-			    		Fecha de nacimiento:
-			    		<input type="text"><br>
-			    		Email:
-			    		<input type="text"><br>
-			    		Contáctenos:
-			    		<input type="text"><br>
-			    		<input type="checkbox">
-			    		Términos y condiciones
-			    		<button class="btn-primary">
-			    			Registrarse
-			    		</button>
-			    	</form>
+			    <div class="col-xs-8" style="height: 500px;">
+			    	{{> registerForm}}
 			    	<form>
 			    		<img 
 			    			style="width: 32px; height: 32px;"
@@ -43,7 +67,7 @@
 			    		</button>
 			    	</form>
 		    	</div>
-			    <div class="col-sm-4" style="height: 500px;">
+			    <div class="col-xs-4" style="height: 500px;">
 			    	<img class="centeredImageArea" src="/img/logo.svg">
 		    	</div>
 	    	</div>

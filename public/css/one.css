@@ -30,16 +30,35 @@ h1 {
 	font-family: "lobster_1.4regular";
 }
 
+input {
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #000000;
+}
+
+label {
+    color: #000000;
+}
+
 .btn-primary {
 	font-family: "lobster_1.4regular";
     color: #ffffff;
     background-color: #660a21;
+    border-radius: 10px;
 }
 
 .btn-secondary {
     font-family: "lobster_1.4regular";
     color: #ffffff;
     background-color: #57585a;
+    border-radius: 10px;
+}
+
+.customFormContainer {
+    background-color: #ffffff;
+    opacity: 0.6;
+    border-radius: 10px;   
+    border-width: 4;
+    border-color: #000000;
 }
 
 .centeredImageArea {
