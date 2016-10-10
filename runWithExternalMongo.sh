@@ -11,4 +11,3 @@ else
     export MONGO_URL=mongodb://localhost:27017/guiaerogena
     meteor --port 3000 run
 fi
-
